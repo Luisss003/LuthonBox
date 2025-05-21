@@ -1,11 +1,10 @@
+from routes import router
 from fastapi import FastAPI
-from app.api.routes import router
 
-app = FastAPI(title="LuthonBox")
+app = FastAPI(title="LuthonBox - Malware Analysis")
 
 app.include_router(router)
 
-@app.get("/ping")
-def ping():
-    return {"message": "pong"}
-
+@app.get("/")
+async def root():
+    return {"message": "LuthonBox is running"}
